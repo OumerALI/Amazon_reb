@@ -50,7 +50,7 @@ function Product() {
   }, []);
 
   return (
-    <section className={style.products_container}>
+    <section className={style.product_container}>
       {products &&
         products.map(({ id, title, price, image, rating }) => (
           <ProductCard

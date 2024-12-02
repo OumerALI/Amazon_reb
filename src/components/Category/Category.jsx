@@ -56,14 +56,14 @@
 
 // // export default Category;
 
-import { CategoryInfos } from "./CategoryFullInfos";
+import { categoryInfos } from "./CategoryFullInfos";
 import style from "./Category.module.css";
 import CategoryCard from "./CategoryCard";
 
 function Category() {
   return (
     <section className={style.category_container}>
-      {CategoryInfos.map((infos) => (
+      {categoryInfos.map((infos) => (
         // Return each `CategoryCard` inside the map function
         <CategoryCard data={infos} key={infos.name} />
       ))}
