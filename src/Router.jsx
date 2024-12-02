@@ -44,7 +44,7 @@ function AppRouter() {
         <Route path="/payments" element={<Payment />} />
         <Route path="/orders" element={<Order />} />
         <Route path="/category/:categoryName" element={<Results />} />
-        <Route path="/product/:productId" element={<ProductDetail />} />
+        <Route path="/products/:productId" element={<ProductDetail />} />
         <Route path="/cart" element={<Cart />} />
         <Route path="*" element={<p>Page not found</p>} />
       </Routes>

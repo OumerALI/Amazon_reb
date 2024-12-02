@@ -90,11 +90,30 @@ import CurrencyFormat from "../CurrencyFormat/CurrencyFormat";
 import style from "./Product.module.css";
 import PropTypes from "prop-types";
 import { Link } from "react-router-dom";
+import { useContext } from "react";
+import { DataContext } from "../DataProvider/DataProvider";
+import { Type } from "../../Utility/action.type";
+// import Product from "./Product";
 
-function ProductCard({ image = "", title = "", price = 0, id, rating = 0 }) {
+function ProductCard({ image, title, id, rating, price,description }) {
+  // if (!product) {
+  //   return <p>Loading product...</p>; // Render a fallback UI
+  // }
+  // const { image, title, id, rating, price } = product;
+    const[ state,dispatch] =useContext(DataContext)
+  const addToCart = ()=>{
+    dispatch({
+      type: Type.ADD_TO_BASKET,
+      item: { image, title, id, rating, price, description },
+    });
+  }
+
+
+
+
   return (
     <div className={`${style.Card_container}`}>
-      <Link to={`/product/${id}`}>
+      <Link to={`/products/${id}`}>
         <img src={image || "https://via.placeholder.com/150"} alt={title} />
         <button className={style.detail}>View Product</button>
       </Link>
@@ -107,7 +126,7 @@ function ProductCard({ image = "", title = "", price = 0, id, rating = 0 }) {
         <div>
           <CurrencyFormat amount={price || 0} />
         </div>
-        <button className={style.button}>Add to Cart</button>
+        <button className={style.button} onClick={addToCart}>Add to Cart</button>
       </div>
     </div>
   );
@@ -122,3 +141,59 @@ ProductCard.propTypes = {
 };
 
 export default ProductCard;
+
+//FIXME -
+// import Rating from "@mui/material/rating";
+// import CurrencyFormat from "../CurrencyFormat/CurrencyFormat";
+// import style from "./Product.module.css";
+// import PropTypes from "prop-types";
+// import { Link } from "react-router-dom";
+
+// function ProductCard({ product, flex, render_desc, renderAdd }) {
+//   if (!product) {
+//     return <p>Loading product...</p>; // Fallback UI if `product` is undefined
+//   }
+
+//   // Destructure properties safely
+//   const { image, title, id, rating, price } = product;
+
+//   return (
+//     <div
+//       className={`${style.card_container} ${flex ? style.product_flexed : ""}`}
+//     >
+//       <Link to={`/products/${id}`}>
+//         <img
+//           src={image || "https://via.placeholder.com/150"}
+//           alt={title || "No title available"}
+//         />
+//         <button className={style.detail}>View Product</button>
+//       </Link>
+//       <div>
+//         <h3>{title || "No Title"}</h3>
+//         <div className={style.rating}>
+//           <Rating value={rating || 0} precision={0.1} readOnly />
+//           <small>{rating ? rating.toFixed(1) : "N/A"}</small>
+//         </div>
+//         <div>
+//           <CurrencyFormat amount={price || 0} />
+//         </div>
+//         {renderAdd && <button className={style.button}>Add to Cart</button>}
+//       </div>
+//     </div>
+//   );
+// }
+
+// ProductCard.propTypes = {
+//   product: PropTypes.shape({
+//     image: PropTypes.string,
+//     title: PropTypes.string,
+//     price: PropTypes.number,
+//     id: PropTypes.oneOfType([PropTypes.string, PropTypes.number]),
+//     rating: PropTypes.oneOfType([PropTypes.string, PropTypes.number]),
+//   }),
+//   flex: PropTypes.bool,
+//   render_desc: PropTypes.bool,
+//   renderAdd: PropTypes.bool,
+// };
+
+// export default ProductCard;
