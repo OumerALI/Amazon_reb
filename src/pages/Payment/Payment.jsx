@@ -1,13 +1,13 @@
-import LayOut from "../../components/LayOut/LayOut"
+/** @format */
+
+import LayOut from "../../components/LayOut/LayOut";
 
 function Payment() {
   return (
     <LayOut>
-        <dive>
-            my payment
-        </dive>
+      <div>my payment</div>
     </LayOut>
-  )
+  );
 }
 
-export default Payment
+export default Payment;

@@ -1,9 +1,6 @@
-
-
+/** @format */
 
 // import style from './Category.module.css'
-
-
 
 // function CategoryCard({data}) {
 //   return (
@@ -20,32 +17,21 @@
 // }
 
 // export default CategoryCard;
-import PropTypes from 'prop-types';
-import style from './Category.module.css';
 
+import style from "./Category.module.css";
+import { Link } from "react-router-dom";
 function CategoryCard({ data }) {
-  if (!data) {
-    return <div>Loading...</div>;
-  }
-
   return (
     <div className={style.category}>
-      <a href="#">
+      <Link to={`category/${data.name}`}>
         <span>
-          <h2>{data.title}</h2>
+          <h2>{data?.title}</h2>
         </span>
-        <img src={data.imgLink} alt={data.title || 'category image'} />
+        <img src={data?.imgLink} alt={data.title} />
         <p>Shop now</p>
-      </a>
+      </Link>
     </div>
   );
 }
-
-CategoryCard.propTypes = {
-  data: PropTypes.shape({
-    title: PropTypes.string.isRequired,
-    imgLink: PropTypes.string.isRequired,
-  }).isRequired,
-};
 
 export default CategoryCard;

@@ -11,7 +11,7 @@ function Header() {
   return (
     <>
       <div className={style.header_container} >
-        <dev className ={style.logo_container} >
+        <div className ={style.logo_container} >
           {/* logo */}
           <Link to="/">
             <img src="https://pngimg.com/uploads/amazon/amazon_PNG11.png" alt="Amazon logo" />
@@ -26,8 +26,8 @@ function Header() {
             <span> ksa</span>
             </div>
           </div>  
-        </dev>
-        <dev className= {style.search}>
+        </div>
+        <div className= {style.search}>
           {/* search bar */}
           <select name="" id="">
             <option value="">All</option>
@@ -35,10 +35,10 @@ function Header() {
             <input type="text"  name='' id='' placeholder=' search product'/>
             {<FaSearch  size={25}/>}
          
-        </dev>
+        </div>
         {/* rightSide  */}
 
-        <dev>
+        <div>
           <div className= { style.order_container} >
             <a href="" className={style.language}>
             <img src="https://upload.wikimedia.org/wikipedia/commons/thumb/0/0d/Flag_of_Saudi_Arabia.svg/1200px-Flag_of_Saudi_Arabia.svg.png" alt="" />
@@ -65,7 +65,7 @@ function Header() {
               <span>0</span>
             </Link>
           </div>
-        </dev>
+        </div>
       </div>
       <LowerHeader/>
     </>
