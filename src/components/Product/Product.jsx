@@ -51,17 +51,19 @@ function Product() {
 
   return (
     <section className={style.product_container}>
-      {products &&
-        products.map(({ id, title, price, image, rating }) => (
-          <ProductCard
-            key={id}
-            id={id.toString()}
-            title={title}
-            price={price}
-            image={image}
-            rating={rating?.rate || 0}
-          />
-        ))}
+      {products?.map((singleProduct) => (
+        <ProductCard
+          product={singleProduct}
+          key={singleProduct.id}
+          renderAdd={true}
+          // key={id}
+          // id={id.toString()}
+          // title={title}
+          // price={price}
+          // image={image}
+          // rating={rating?.rate || 0}
+        />
+      ))}
     </section>
   );
 }

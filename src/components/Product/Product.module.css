@@ -10,7 +10,7 @@
 }
 
 .Card_container:hover .button {
-    display: block;
+  display: block;
 }
 .Card_container:hover .button {
   display: block;
@@ -68,7 +68,7 @@
 .product_container section {
   margin: 0 auto;
 }
-/* 
+
 .product_flexed {
   display: flex;
   box-shadow: none;
@@ -86,20 +86,20 @@
   position: static;
   width: 150px;
   margin-right: 40px;
-} */
+}
 
-/* .product_flexed {
+.product_flexed {
   height: 50vh;
-} */
+}
 
-/* .product_flexed img {
+.product_flexed img {
   width: 300px !important;
   height: auto;
-} */
+} 
 
-.Card_description {
+ /* .Card_description {
   max-width: 750px;
-}
+}  */
 /* 
 @media screen and (max-width: 768px) {
   .product_flexed {

@@ -28,7 +28,7 @@
 
 import { BrowserRouter as Router, Routes, Route } from "react-router-dom";
 import Landing from "./pages/Landing/Landing";
-import SignUp from "./pages/Auth/SignUp";
+import Auth from "./pages/Auth/Auth";
 import Payment from "./pages/Payment/Payment";
 import Order from "./pages/Orders/Orders";
 import Cart from "./pages/Cart/Cart";
@@ -40,7 +40,7 @@ function AppRouter() {
     <Router>
       <Routes>
         <Route path="/" element={<Landing />} />
-        <Route path="/auth" element={<SignUp />} />
+        <Route path="/auth" element={<Auth />} />
         <Route path="/payments" element={<Payment />} />
         <Route path="/orders" element={<Order />} />
         <Route path="/category/:categoryName" element={<Results />} />
