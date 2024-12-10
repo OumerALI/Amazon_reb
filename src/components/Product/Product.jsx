@@ -26,12 +26,6 @@ function Product() {
           product={singleProduct}
           key={singleProduct.id}
           renderAdd={true}
-          // key={id}
-          // id={id.toString()}
-          // title={title}
-          // price={price}
-          // image={image}
-          // rating={rating?.rate || 0}
         />
       ))}
     </section>

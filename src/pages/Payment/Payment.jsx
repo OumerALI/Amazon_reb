@@ -209,7 +209,7 @@ function Payment() {
         });
 
       // Empty the basket
-      dispatch({ type: "EMPTY_BASKET" });
+      dispatch({ type: Type.EMPTY_BASKET });
 
       setProcessing(false);
       navigate("/orders", { state: { msg: "You have placed a new order." } });
