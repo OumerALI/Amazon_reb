@@ -41,7 +41,7 @@
   border: none;
   border-radius: 3px;
   border: 1px solid gray; 
-  box-sizing: border-box;  
+   
 }
 .login_container form input:focus {
   outline: 2px solid skyblue;

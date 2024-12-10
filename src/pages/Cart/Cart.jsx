@@ -1,9 +1,9 @@
 /** @format */
 
 import React, { useContext } from "react";
-import Layout from "../../Components/Layout/Layout";
+import Layout from "../../components/LayOut/LayOut";
 import { DataContext } from "../../components/DataProvider/DataProvider";
-import ProductCard from "../../Components/Product/ProductCard";
+import ProductCard from "../../components/Product/ProductCard";
 import CurrencyFormat from "../../components/CurrencyFormat/CurrencyFormat";
 import { Link } from "react-router-dom";
 import style from "./cart.module.css";

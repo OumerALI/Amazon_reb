@@ -9,11 +9,15 @@ import LowerHeader from "./LowerHeader";
 import style from "./Header.module.css";
 import { useContext } from "react";
 import { DataContext } from "../DataProvider/DataProvider";
-function Header() {
-  const [{ basket }, dispatch] = useContext(DataContext);
-  console.log(basket.length);
+import { auth } from "../../Utility/firebase";
+const Header = () => {
+  const [{ user, basket }, dispatch] = useContext(DataContext);
+  // console.log(basket.length);
+  const totalItem = basket?.reduce((amount,item)=>{
+    return item.amount + amount 
+  },0)
   return (
-    <section className= { style.fixed}>
+    <section className={style.fixed}>
       <div className={style.header_container}>
         <div className={style.logo_container}>
           {/* logo */}
@@ -38,7 +42,7 @@ function Header() {
             <option value="">All</option>
           </select>
           <input type="text" name="" id="" placeholder=" search product" />
-          {<FaSearch size={25} />}
+          {<FaSearch size={38} />}
         </div>
         {/* rightSide  */}
 
@@ -55,10 +59,22 @@ function Header() {
             </a>
 
             {/* three components  */}
-            <Link to="/auth">
+            <Link to={!user && "/auth"}>
               <div>
-                <p>Sign In</p>
-                <span> Account & Lists</span>
+                <div>
+                  {user ? (
+                    <>
+                      <p>Hello {user?.email?.split("@")[0]}</p>
+                      <span onClick={() => auth.signOut()}>Sign Out</span>
+                      
+                    </>
+                  ) : (
+                    <>
+                      <p>Hello , Sign In</p>
+                      <span>Account & Lists</span>
+                    </>
+                  )}
+                </div>
               </div>
             </Link>
             {/* order */}
@@ -77,6 +93,6 @@ function Header() {
       <LowerHeader />
     </section>
   );
-}
+};
 
 export default Header;
