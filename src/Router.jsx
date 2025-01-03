@@ -39,9 +39,10 @@ function AppRouter() {
         <Route
           path="/orders"
           element={
-            <ProtectedRoute>
+            <ProtectedRoute
               msg={"you must login to access your orders"}
               redirect={"/orders"}
+            >
               <Order />
             </ProtectedRoute>
           }
